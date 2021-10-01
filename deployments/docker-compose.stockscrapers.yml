@@ -7,7 +7,6 @@ services:
     command: /bin/stock-scrapers -source=Finage
     networks:
       - influxdb-network
-      - redis-network
     environment:
       - EXEC_MODE=production
     secrets:
@@ -25,7 +24,6 @@ services:
     restart: "no"
     networks:
       - influxdb-network
-      - redis-network
     environment:
       - EXEC_MODE=production
     logging:
@@ -36,9 +34,6 @@ networks:
   influxdb-network:
     external:
         name: influxdb_influxdb-network
-  redis-network:
-    external:
-        name: redis_redis-network
 
 secrets:
   api_finage:
